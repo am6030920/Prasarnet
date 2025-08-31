@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "./SideBar.css";
 
 const Sidebar = ({ setHeaderName }) => {
@@ -8,10 +8,7 @@ const Sidebar = ({ setHeaderName }) => {
     const returnValue = location.pathname.startsWith(path) ? true : false;
     return returnValue;
   };
-  const Navigate =useNavigate();
-  const handelLogout = () => {
-    Navigate("/login");
-  };
+
   return (
     <div className="sidebar-container">
       <div className="sidebar">
@@ -20,23 +17,23 @@ const Sidebar = ({ setHeaderName }) => {
           <ul className="sidebar-list">
             <li onClick={() => setHeaderName("Dashboard")}>
               <Link
-                to="/DashBoard"
-                className={isActiveRoute("/DashBoard") ? "active-link" : ""}
+                to="/dashBoard"
+                className={isActiveRoute("/dashBoard") ? "active-link" : ""}
               >
                 Dashboard
               </Link>
             </li>
             <li onClick={() => setHeaderName("Profile")}>
               <Link
-                to="/Profile"
-                className={isActiveRoute("/Profile") ? "active-link" : ""}
+                to="/profile"
+                className={isActiveRoute("/profile") ? "active-link" : ""}
               >
                 Profile
               </Link>
             </li>
             <li onClick={() => setHeaderName("Todo List")}>
               <Link
-                to="/TodoList"
+                to="/todoList"
                 className={isActiveRoute("/TodoList") ? "active-link" : ""}
               >
                 Todo List
@@ -44,7 +41,7 @@ const Sidebar = ({ setHeaderName }) => {
             </li>
             <li onClick={() => setHeaderName("Todo Form")}>
               <Link
-                to="/TodoFrom"
+                to="/todoFrom"
                 className={isActiveRoute("/TodoFrom") ? "active-link" : ""}
               >
                 Todo Form
@@ -53,7 +50,7 @@ const Sidebar = ({ setHeaderName }) => {
           </ul>
         </div>
         <div className="sidebar-footer">
-          <button className="logout-btn" onClick={handelLogout}>
+          <button className="logout-btn">
             Logout
           </button>
         </div>
